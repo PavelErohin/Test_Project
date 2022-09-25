@@ -12,7 +12,8 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.test_project.main.MainScreen
+import com.example.test_project.screens.detail.DetailScreen
+import com.example.test_project.screens.main.MainScreen
 import com.example.test_project.theme.MainTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -26,7 +27,6 @@ class MainActivity : ComponentActivity() {
         Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
 
           val bottomItems = listOf("Главная", "Карта", "Бронь", "Чат", "Ещё")
-
           val navController = rememberNavController()
 
           Scaffold(bottomBar = {
@@ -42,12 +42,13 @@ class MainActivity : ComponentActivity() {
           }) {
             NavHost(navController = navController, startDestination = "Главная") {
               composable("Главная") {
-                MainScreen(mainViewModel = hiltViewModel())
+                MainScreen(mainViewModel = hiltViewModel(), navController)
               }
-              composable("Карта") { Text("Карта") }
+              composable("Карта") { DetailScreen(navController) }
               composable("Бронь") { Text("Бронь") }
               composable("Чат") { Text("Чат") }
               composable("Ещё") { Text("Ещё") }
+              composable("details") { DetailScreen(navController) }
             }
           }
         }

@@ -1,4 +1,4 @@
-package com.example.test_project.main
+package com.example.test_project.screens.main
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -8,6 +8,9 @@ import com.example.test_project.main.models.BlogsContent
 import com.example.test_project.main.data.MainRepository
 import com.example.test_project.main.domain.MainUseCase
 import com.example.test_project.main.models.MainViewState
+import com.example.test_project.screens.main.models.BlogsContent
+import com.example.test_project.screens.main.data.MainRepository
+import com.example.test_project.screens.main.models.MainViewState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
@@ -78,25 +81,25 @@ class MainViewModel @Inject constructor(
 //    )
 //  }
 
-    /*override fun obtainEvent(event: MainScreenEvent) {
-      when (val currentState = _mainViewState.value) {
-        is MainViewState.Loading -> reduce(event, currentState)
-        is MainViewState.Display -> reduce(event, currentState)
-        is MainViewState.Error -> reduce(event, currentState)
-      }
+  /*override fun obtainEvent(event: MainScreenEvent) {
+    when (val currentState = _mainViewState.value) {
+      is MainViewState.Loading -> reduce(event, currentState)
+      is MainViewState.Display -> reduce(event, currentState)
+      is MainViewState.Error -> reduce(event, currentState)
     }
+  }
 
-    private fun reduce(event: MainScreenEvent, currentState: MainViewState.Loading) {
-      when (event) {
-        MainScreenEvent.EnterScreen -> fetchHabbitForDate()
-        else -> {}
-      }
+  private fun reduce(event: MainScreenEvent, currentState: MainViewState.Loading) {
+    when (event) {
+      MainScreenEvent.EnterScreen -> fetchHabbitForDate()
+      else -> {}
     }
+  }
 
-    private fun reduce(event: MainScreenEvent, currentState: MainViewState.Display) {
-      when (event) {
-        MainScreenEvent.EnterScreen -> fetchHabbitForDate()
-  *//*      is MainScreenEvent.OnBlogItemClick -> performHabbitClick(
+  private fun reduce(event: MainScreenEvent, currentState: MainViewState.Display) {
+    when (event) {
+      MainScreenEvent.EnterScreen -> fetchHabbitForDate()
+*//*      is MainScreenEvent.OnBlogItemClick -> performHabbitClick(
         habbitId = event.blogId
       )*//*
       else -> {}
@@ -110,32 +113,32 @@ class MainViewModel @Inject constructor(
     }
   }*/
 
-    private fun goBlog(blogId: Int) {
+  private fun goBlog(blogId: Int) {
 
+  }
+
+  /*private fun fetchHabbitForDate(needsToRefresh: Boolean = false) {
+    if (needsToRefresh) {
+      _mainViewState.postValue(MainViewState.Loading)
     }
 
-    /*private fun fetchHabbitForDate(needsToRefresh: Boolean = false) {
-      if (needsToRefresh) {
-        _mainViewState.postValue(MainViewState.Loading)
-      }
-
-      viewModelScope.launch {
-        Log.d("qwe777", "777")
-        try {
-          //val habbits = useCase.getMain()
+    viewModelScope.launch {
+      Log.d("qwe777", "777")
+      try {
+        //val habbits = useCase.getMain()
 
 
-          _mainViewState.value = MainViewState.Loading
-          _mainViewState.postValue(
-            MainViewState.Display(
-              title = "Блог",
-              items = blogs
-            )
+        _mainViewState.value = MainViewState.Loading
+        _mainViewState.postValue(
+          MainViewState.Display(
+            title = "Блог",
+            items = blogs
           )
+        )
 
-        } catch (e: Exception) {
-          _mainViewState.postValue(MainViewState.Error)
-        }
+      } catch (e: Exception) {
+        _mainViewState.postValue(MainViewState.Error)
       }
-    }*/
+    }
+  }*/
 }

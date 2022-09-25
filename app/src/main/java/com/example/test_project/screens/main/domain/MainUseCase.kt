@@ -1,4 +1,4 @@
-package com.example.test_project.main.domain
+package com.example.test_project.screens.main.domain
 
 import com.example.test_project.main.data.MainRepository
 import com.example.test_project.main.models.BlogsContent

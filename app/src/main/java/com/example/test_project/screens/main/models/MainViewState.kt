@@ -1,4 +1,4 @@
-package com.example.test_project.main.models
+package com.example.test_project.screens.main.models
 
 sealed class MainViewState {
   object Loading : MainViewState()

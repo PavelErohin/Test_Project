@@ -1,4 +1,4 @@
-package com.example.test_project.main.domain
+package com.example.test_project.screens.main.domain
 
 data class MainScreenState(val title: String, val blogs: List<BlogItem>) {
     data class BlogItem(
