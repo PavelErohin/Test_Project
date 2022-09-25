@@ -77,10 +77,6 @@ class MainViewModel @Inject constructor(
     }
   }*/
 
-  private fun goBlog(blogId: Int) {
-
-  }
-
   /*private fun fetchHabbitForDate(needsToRefresh: Boolean = false) {
     if (needsToRefresh) {
       _mainViewState.postValue(MainViewState.Loading)

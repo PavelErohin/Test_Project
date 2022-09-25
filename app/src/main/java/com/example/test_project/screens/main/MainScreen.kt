@@ -4,10 +4,10 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.navigation.NavController
-import com.example.test_project.screens.main.views.MainViewDisplay
-import com.example.test_project.screens.main.views.MainViewLoading
 import com.example.test_project.screens.main.models.MainViewState
+import com.example.test_project.screens.main.views.MainViewDisplay
 import com.example.test_project.screens.main.views.MainViewError
+import com.example.test_project.screens.main.views.MainViewLoading
 
 @ExperimentalFoundationApi
 @Composable
@@ -18,16 +18,10 @@ fun MainScreen(
   val viewState = mainViewModel.mainViewState.observeAsState()
   when (val state = viewState.value) {
     MainViewState.Loading -> MainViewLoading()
-    MainViewState.Error -> MainViewError {
-      /*mainViewModel.obtainEvent(MainScreenEvent.ReloadScreen)*/
-    }
+    MainViewState.Error -> MainViewError { }
     is MainViewState.Display -> MainViewDisplay(
       viewState = state, navController
     )
-    else -> {}//throw NotImplementedError("Unexpected main state")
+    else -> {}
   }
-
-/*  LaunchedEffect(key1 = viewState, block = {
-    mainViewModel.obtainEvent(event = MainScreenEvent.EnterScreen)
-  })*/
 }

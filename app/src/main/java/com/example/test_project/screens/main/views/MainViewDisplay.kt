@@ -51,7 +51,7 @@ fun Toolbar() {
 @Composable
 fun NavButtons() {
   LazyRow(modifier = Modifier.padding(end = 16.dp)) {
-    for (i in 1..10) item {
+    for (i in 1..10) item {//todo
       Button(
         onClick = { /*TODO*/ },
         Modifier
@@ -78,7 +78,7 @@ fun NavButtons() {
 
 @ExperimentalFoundationApi
 @Composable
-fun MainLazyVerticalGrid(blogsContent: MainViewState.Display, navController:NavController) {
+fun MainLazyVerticalGrid(blogsContent: MainViewState.Display, navController: NavController) {
   Column(modifier = Modifier.padding(top = 60.dp, bottom = 60.dp)) {
     LazyVerticalGrid(
       cells = GridCells.Adaptive(minSize = 160.dp),
@@ -102,7 +102,8 @@ fun MainLazyVerticalGrid(blogsContent: MainViewState.Display, navController:NavC
             .padding(4.dp)
             .defaultMinSize(minHeight = 160.dp, minWidth = 160.dp)
             .clickable {
-                       navController.navigate("details")
+              val blogId = blog.id.toString()
+              navController.navigate("detail/$blogId")
             },
         ) {
           Column {
@@ -112,7 +113,6 @@ fun MainLazyVerticalGrid(blogsContent: MainViewState.Display, navController:NavC
                 .height(104.dp)
                 .defaultMinSize(160.dp, 104.dp)
                 .clip(RoundedCornerShape(8.dp))
-
             )
             Text(
               text = blog.title,
