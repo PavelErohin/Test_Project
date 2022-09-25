@@ -1,7 +1,8 @@
-package com.example.test_project.main.views
+package com.example.test_project.screens.main.views
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.GridCells
 import androidx.compose.foundation.lazy.GridItemSpan
@@ -21,38 +22,18 @@ import androidx.compose.ui.text.font.FontWeight.Companion.W500
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.test_project.main.models.MainViewState
+import androidx.navigation.NavController
+import com.example.test_project.screens.main.models.MainViewState
 import com.example.test_project.util.ImageView
-
-/*val BlogsList = BlogsContent(
-  "Блог", listOf<BlogsContent.BlogItem>(
-    BlogsContent.BlogItem(
-      233,
-      "https://cdn2.rsttur.ru/photos/blog-233-700-400-80.webp?v=1663567527",
-      "Чем заняться в Приморье осенью",
-      "Отдых в Приморье осенью. Погода в осенние месяцы, виды развлчений, туры и базы отдыха."
-    ), BlogsContent.BlogItem(
-      291,
-      "https://cdn2.rsttur.ru/photos/blog-226-700-400-80.webp?v=1651481009",
-      "Альтернатива Букингу! Бронирование отелей, гостиниц и баз отдыха на РСТ",
-      "Как забронировать гостиницу, апартаментов и баз отдыха быстро и онлайн на сайт РСТ-тур. Разделы с отелями и базами отдыха на сайте, лучшие места для отдыха в Приморском крае.",
-    ), BlogsContent.BlogItem(
-      220,
-      "https://cdn2.rsttur.ru/photos/blog-233-700-400-80.webp?v=1663567527",
-      "Чем заняться в Приморье осенью",
-      "Отдых в Приморье осенью. Погода в осенние месяцы, виды развлчений, туры и базы отдыха."
-    )
-  )
-)*/
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun MainViewDisplay(
-  viewState: MainViewState.Display
+  viewState: MainViewState.Display, navController: NavController
 ) {
   Toolbar()
   Box {
-    MainLazyVerticalGrid(viewState)
+    MainLazyVerticalGrid(viewState, navController)
   }
 }
 
@@ -97,12 +78,12 @@ fun NavButtons() {
 
 @ExperimentalFoundationApi
 @Composable
-fun MainLazyVerticalGrid(blogsContent: MainViewState.Display) {
+fun MainLazyVerticalGrid(blogsContent: MainViewState.Display, navController:NavController) {
   Column(modifier = Modifier.padding(top = 60.dp, bottom = 60.dp)) {
     LazyVerticalGrid(
       cells = GridCells.Adaptive(minSize = 160.dp),
       contentPadding = PaddingValues(start = 12.dp, end = 12.dp, top = 16.dp),
-      verticalArrangement = Arrangement.spacedBy(4.dp)
+      verticalArrangement = Arrangement.spacedBy(4.dp),
     ) {
       item(span = { GridItemSpan(2) }) { NavButtons() }
       item(span = { GridItemSpan(2) }) {
@@ -119,7 +100,10 @@ fun MainLazyVerticalGrid(blogsContent: MainViewState.Display) {
         Box(
           modifier = Modifier
             .padding(4.dp)
-            .defaultMinSize(minHeight = 160.dp, minWidth = 160.dp),
+            .defaultMinSize(minHeight = 160.dp, minWidth = 160.dp)
+            .clickable {
+                       navController.navigate("details")
+            },
         ) {
           Column {
             ImageView(

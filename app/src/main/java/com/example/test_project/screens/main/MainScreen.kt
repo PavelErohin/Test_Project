@@ -1,27 +1,28 @@
-package com.example.test_project.main
+package com.example.test_project.screens.main
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.livedata.observeAsState
-import com.example.test_project.main.views.MainViewDisplay
-import com.example.test_project.main.views.MainViewLoading
-import com.example.test_project.main.models.MainViewState
-import com.example.test_project.main.views.MainViewError
+import androidx.navigation.NavController
+import com.example.test_project.screens.main.views.MainViewDisplay
+import com.example.test_project.screens.main.views.MainViewLoading
+import com.example.test_project.screens.main.models.MainViewState
+import com.example.test_project.screens.main.views.MainViewError
 
 @ExperimentalFoundationApi
 @Composable
 fun MainScreen(
-  mainViewModel: MainViewModel
+  mainViewModel: MainViewModel,
+  navController: NavController
 ) {
   val viewState = mainViewModel.mainViewState.observeAsState()
-
   when (val state = viewState.value) {
     MainViewState.Loading -> MainViewLoading()
     MainViewState.Error -> MainViewError {
       /*mainViewModel.obtainEvent(MainScreenEvent.ReloadScreen)*/
     }
     is MainViewState.Display -> MainViewDisplay(
-      viewState = state
+      viewState = state, navController
     )
     else -> {}//throw NotImplementedError("Unexpected main state")
   }

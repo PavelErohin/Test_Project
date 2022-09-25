@@ -1,4 +1,4 @@
-package com.example.test_project.main.views
+package com.example.test_project.screens.main.views
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Icon
@@ -17,7 +17,7 @@ import com.example.test_project.theme.RstTheme
 
 @Composable
 fun MainViewError(
-  onReloadClick: () -> Unit
+  onReloadClick: () -> Unit //todo
 ) {
   Surface(
     modifier = Modifier.fillMaxSize(),
@@ -44,13 +44,6 @@ fun MainViewError(
           color = RstTheme.colors.primaryText,
           textAlign = TextAlign.Center
         )
-
-        /*RstButton(
-          modifier = Modifier.fillMaxWidth(),
-          backgroundColor = RstTheme.colors.controlColor,
-          text = stringResource(id = R.string.action_refresh),
-          onClick = onReloadClick
-        )*/
       }
     }
   }

@@ -1,4 +1,4 @@
-package com.example.test_project.main.domain
+package com.example.test_project.screens.main.domain
 
 /*
 class MainUseCase(private val repository: MainRepository) {

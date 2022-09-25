@@ -1,4 +1,4 @@
-package com.example.test_project.main.data
+package com.example.test_project.screens.main.data
 
 import retrofit2.http.GET
 import retrofit2.http.Query

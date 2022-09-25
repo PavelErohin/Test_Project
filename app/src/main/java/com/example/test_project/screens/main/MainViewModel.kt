@@ -1,11 +1,11 @@
-package com.example.test_project.main
+package com.example.test_project.screens.main
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.test_project.main.models.BlogsContent
-import com.example.test_project.main.data.MainRepository
-import com.example.test_project.main.models.MainViewState
+import com.example.test_project.screens.main.models.BlogsContent
+import com.example.test_project.screens.main.data.MainRepository
+import com.example.test_project.screens.main.models.MainViewState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

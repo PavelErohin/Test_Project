@@ -1,6 +1,6 @@
 package com.example.test_project.di
 
-import com.example.test_project.main.data.MainRepository
+import com.example.test_project.screens.main.data.MainRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
