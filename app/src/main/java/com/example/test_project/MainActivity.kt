@@ -13,8 +13,6 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.test_project.screens.detail.presentation.DetailScreen
-import com.example.test_project.screens.detail.DetailScreen
-import com.example.test_project.screens.detail.Test
 import com.example.test_project.screens.main.MainScreen
 import com.example.test_project.theme.MainTheme
 import dagger.hilt.android.AndroidEntryPoint

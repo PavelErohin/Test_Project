@@ -1,13 +1,19 @@
 package com.example.test_project.screens.detail.presentation
 
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Button
+import androidx.compose.material.Icon
 import androidx.compose.material.Text
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -73,8 +79,12 @@ fun DetailScreen(viewModel: DetailViewModel,/*blog: Blog*/ navController: NavCon
         }
     Button(
         onClick = { navController.navigate("Главная") }, //todo
-        modifier = Modifier.padding(top = 20.dp, start = 20.dp)
+        modifier = Modifier
+            .padding(top = 20.dp, start = 20.dp)
+            .size(48.dp)
+            .clip(CircleShape)
     ) {
+        Icon(Icons.Filled.ArrowBack, contentDescription = "Back", modifier = Modifier.size(40.dp))
         Text(text = "<-")
     }
 }
