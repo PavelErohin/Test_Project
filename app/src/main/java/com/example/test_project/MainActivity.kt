@@ -13,6 +13,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.test_project.screens.detail.presentation.DetailScreen
+import com.example.test_project.screens.detail.DetailScreen
+import com.example.test_project.screens.detail.Test
 import com.example.test_project.screens.main.MainScreen
 import com.example.test_project.theme.MainTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -25,10 +27,8 @@ class MainActivity : ComponentActivity() {
     setContent {
       MainTheme(darkTheme = isSystemInDarkTheme()) {
         Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
-
           val bottomItems = listOf("Главная", "Карта", "Бронь", "Чат", "Ещё")
           val navController = rememberNavController()
-
           Scaffold(bottomBar = {
             BottomNavigation {
               bottomItems.forEach { screen ->
