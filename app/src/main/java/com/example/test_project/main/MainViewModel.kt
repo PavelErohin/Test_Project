@@ -29,6 +29,14 @@ class MainViewModel @Inject constructor(
             mainUseCase.getMain()
         }
 
+        mainUseCase.buttonsFlow.onEach { result ->
+            if (result != null) {
+
+            } else {
+
+            }
+        }.launchIn(viewModelScope)
+
         mainUseCase.contentsFlow.onEach { result ->
             if (result != null) {
                 _mainViewState.value = MainViewState.Display(
