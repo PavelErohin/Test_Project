@@ -1,6 +1,7 @@
 package com.example.test_project.di
 
 import com.example.test_project.main.data.MainRepository
+import com.example.test_project.main.domain.MainUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -10,7 +11,7 @@ import retrofit2.Retrofit
 
 @Module
 @InstallIn(ViewModelComponent::class)
-object RepositoryModule {
+object MainModule {
 
     @Provides
     @ViewModelScoped
@@ -18,5 +19,13 @@ object RepositoryModule {
         disneyService: Retrofit
     ): MainRepository {
         return MainRepository(disneyService)
+    }
+
+    @Provides
+    @ViewModelScoped
+    fun provideMainUseCase(
+        mainRepository: MainRepository
+    ): MainUseCase {
+        return MainUseCase(mainRepository)
     }
 }

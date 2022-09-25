@@ -21,7 +21,7 @@ fun MainViewError(
 ) {
   Surface(
     modifier = Modifier.fillMaxSize(),
-    color = RstTheme.colors.primaryBackground
+    //color = RstTheme.colors.primaryBackground
   ) {
     Box(modifier = Modifier.fillMaxSize()) {
       Column(
@@ -33,15 +33,15 @@ fun MainViewError(
         Icon(
           modifier = Modifier.size(96.dp),
           imageVector = Icons.Filled.Warning,
-          tint = RstTheme.colors.controlColor,
+          //tint = RstTheme.colors.controlColor,
           contentDescription = "Error loading items"
         )
 
         Text(
           modifier = Modifier.padding(top = 16.dp, bottom = 24.dp),
           text = stringResource(id = com.example.namespace.R.string.main_error_loading),
-          style = RstTheme.typography.body,
-          color = RstTheme.colors.primaryText,
+          //style = RstTheme.typography.body,
+          //color = RstTheme.colors.primaryText,
           textAlign = TextAlign.Center
         )
 

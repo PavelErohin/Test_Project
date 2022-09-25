@@ -8,41 +8,27 @@ class MainRepository @Inject constructor(network: Retrofit) {
 
   private val api = network.create(MainService::class.java)
 
-  private suspend fun getMain(): MainData? {
+  suspend fun getMain(): MainData? {
     val main = try {
       api.getMain(ID)
     } catch (e: HttpException) {
       return null
     }
-    return if (main.success) api.getMain(ID)
+    return if (main.success) main
     else null
   }
 
-  /*suspend fun mappedMain(): MainScreenState? {
-    val main = getMain()
-    return if (main != null) {
-      return MainScreenState(
-        buttons = main.data.buttons.map {
-          MainScreenState.Buttons(
-            title = it.title,
-            url = it.url
-          )
-        },
-        content = main.data.content.map {
-          MainScreenState.Content(
-            isOpenable = it.template.type == OPENABLE_TYPE,
-            title = it.title,
-            url = it.url
-          )
-        }
-      )
-    } else {
-      null
+  suspend fun getBlog(): Blog? {
+    val blog = try {
+      api.getBlog(ID, FORMAT)
+    } catch (e: HttpException) {
+      return null
     }
-  }*/
+    return if (blog.success) blog else null
+  }
 
   companion object {
-    const val OPENABLE_TYPE = "blog"
+    const val FORMAT = "card"
     const val ID = 117
   }
 }

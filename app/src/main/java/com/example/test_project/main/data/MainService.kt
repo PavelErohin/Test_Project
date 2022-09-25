@@ -5,6 +5,9 @@ import retrofit2.http.Query
 
 interface MainService {
 
-  @GET("main?id=117")
+  @GET("main")
   suspend fun getMain(@Query("id") id: Int): MainData
+
+  @GET("blog")
+  suspend fun getBlog(@Query("id") id: Int, @Query("format") format: String): Blog
 }

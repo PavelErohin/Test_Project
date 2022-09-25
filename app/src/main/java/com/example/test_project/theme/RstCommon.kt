@@ -35,13 +35,13 @@ data class RstImage(
 )
 
 object RstTheme {
-  val colors: RstColors
-    @Composable
-    get() = LocalRstColors.current
+  //val colors: RstColors
+  //  @Composable
+  //  get() = LocalRstColors.current
 
-  val typography: RstTypography
-    @Composable
-    get() = LocalRstTypography.current
+  //val typography: RstTypography
+ //   @Composable
+  //  get() = LocalRstTypography.current
 
   val shapes: RstShape
     @Composable
@@ -53,13 +53,13 @@ object RstTheme {
 }
 
 
-val LocalRstColors = staticCompositionLocalOf<RstColors> {
-  error("No colors provided")
-}
+///val LocalRstColors = staticCompositionLocalOf<RstColors> {
+///error("No colors provided")
+//}
 
-val LocalRstTypography = staticCompositionLocalOf<RstTypography> {
-  error("No font provided")
-}
+//val LocalRstTypography = staticCompositionLocalOf<RstTypography> {
+//  error("No font provided")
+//}
 
 val LocalRstShape = staticCompositionLocalOf<RstShape> {
   error("No shapes provided")
