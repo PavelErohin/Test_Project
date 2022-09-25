@@ -1,7 +1,7 @@
 package com.example.test_project.screens.main.domain
 
-import com.example.test_project.main.data.MainRepository
-import com.example.test_project.main.models.BlogsContent
+import com.example.test_project.screens.main.data.MainRepository
+import com.example.test_project.screens.main.models.BlogsContent
 import kotlinx.coroutines.flow.MutableStateFlow
 import javax.inject.Inject
 

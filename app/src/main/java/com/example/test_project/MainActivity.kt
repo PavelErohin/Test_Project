@@ -12,7 +12,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.test_project.screens.detail.DetailScreen
+import com.example.test_project.screens.detail.presentation.DetailScreen
 import com.example.test_project.screens.main.MainScreen
 import com.example.test_project.theme.MainTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -44,11 +44,11 @@ class MainActivity : ComponentActivity() {
               composable("Главная") {
                 MainScreen(mainViewModel = hiltViewModel(), navController)
               }
-              composable("Карта") { DetailScreen(navController) }
+              composable("Карта") { DetailScreen(viewModel = hiltViewModel(), navController) }
               composable("Бронь") { Text("Бронь") }
               composable("Чат") { Text("Чат") }
               composable("Ещё") { Text("Ещё") }
-              composable("details") { DetailScreen(navController) }
+              composable("details/{id}") { DetailScreen(viewModel = hiltViewModel(), navController) }
             }
           }
         }

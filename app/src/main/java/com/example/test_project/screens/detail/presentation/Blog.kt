@@ -1,4 +1,4 @@
-package com.example.test_project.screens.detail
+package com.example.test_project.screens.detail.presentation
 
 data class Blog(
   val date: String,
